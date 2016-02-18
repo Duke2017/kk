@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <ActionSheet
+            title="Choose Your Action"
+            placement="Top">
+        <buttons>
+            <Button text="{i18n>Delete}" icon="sap-icon://delete" press="ActionSheetDeletePress"/>
+            <Button text="{i18n>Cancel}" icon="sap-icon://undo" press="ActionSheetCancelPress"/>
+            <Button text="{i18n>Copy}" icon="sap-icon://add-activity-2" press="ActionSheetCopyPress"/>
+            <Button text="{i18n>Create}" icon="sap-icon://add" press="ActionSheetCreatePress"/>
+            <Button text="{i18n>Change}" icon="sap-icon://action" press="ActionSheetChangePress"/>
+        </buttons>
+    </ActionSheet>
+</core:FragmentDefinition>

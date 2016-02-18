@@ -1,0 +1,268 @@
+<mvc:View
+        controllerName="sap.ui.app.controller.Home"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        >
+    <Page   enableScrolling="true"
+            title = "{i18n>HomeTitle}">
+        <content>
+
+            <OverflowToolbar class="sapUiTinyMarginTop">
+                <content>
+                <Title text="Комитет Северсталь" level="H1"  titleStyle="H1" class="sapUiMediumMarginBegin"/>
+                <ToolbarSpacer/>
+                <Text text="В планировании" class="sapUiMediumMarginEnd"/>
+                </content>
+            </OverflowToolbar>
+
+            <Panel expandable="true" expanded="true" headerText="{i18n>HomePanelOverview}">
+                <content>
+                    <l:Grid defaultSpan="L7 M12 S12">
+                            <f:SimpleForm
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanL="5"
+                                    labelSpanM="5"
+                                    labelSpanS="5">
+                                <f:layoutData>
+                                    <l:GridData span="L5 M6 S6" />
+                                </f:layoutData>
+                                <f:content>
+                                    <Label text="{i18n>HomePanelName}"/>
+                                    <Input  id = "HomeInput1"
+                                            value="">
+                                            <layoutData>
+                                                <l:GridData span="L6 M6 S6" />
+                                            </layoutData>
+                                    </Input>
+                                    <Label text="{i18n>HomePanelCategory}"/>
+
+                                    <Input  id = "HomeInput2"
+                                            value="">
+                                            <layoutData>
+                                                <l:GridData span="L6 M6 S6" />
+                                            </layoutData>
+                                    </Input>
+                                 </f:content>
+                            </f:SimpleForm>
+                            <f:SimpleForm
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanL="6"
+                                    labelSpanM="6"
+                                    labelSpanS="6">
+                                <f:content>
+                                    <Label text="{i18n>HomePanelPlanningDeadlines}"/>
+                                    <Input  id = "HomeInput3"
+                                            value="">
+                                    </Input>
+                                    <Label text="{i18n>HomePanelDate}"/>
+                                    <DatePicker  id = "HomeInput4"
+                                            value="">
+                                            <layoutData>
+                                                <l:GridData span="L3 M3 S3" />
+                                            </layoutData>
+                                    </DatePicker>
+                                    <Label text="{i18n>HomePanelTime}"/>
+                                    <Input  id = "HomeInput5"
+                                            value="">
+                                            <layoutData>
+                                                <l:GridData span="L3 M3 S3" />
+                                            </layoutData>
+                                    </Input>
+                                    <Input  id = "HomeInput6"
+                                            value="">
+                                            <layoutData>
+                                                <l:GridData span="L3 M3 S3" />
+                                            </layoutData>
+                                    </Input>
+                                </f:content>
+                            </f:SimpleForm>
+                    </l:Grid>
+
+                    <f:SimpleForm
+                            editable="true"
+                            layout="ResponsiveGridLayout"
+                            labelSpanL="6"
+                            labelSpanM="6"
+                            labelSpanS="6">
+                        <f:content>
+                            <Label text="{i18n>HomePanelDOC}"/>
+                            <DatePicker  id = "HomeInput7"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                            <DatePicker  id = "HomeInput8"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                            <Label text="{i18n>HomePanelFormProtocol}"/>
+                            <DatePicker  id = "HomeInput9"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                            <DatePicker  id = "HomeInput10"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                            <Label text="{i18n>HomePanelAgreementProtocol}"/>
+                            <DatePicker  id = "HomeInput11"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                            <DatePicker  id = "HomeInput12"
+                                         value="">
+                                <layoutData>
+                                    <l:GridData span="L3 M3 S3" />
+                                </layoutData>
+                            </DatePicker>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+
+            </Panel>
+
+            <Panel expandable="true" expanded="true" headerText="{i18n>HomePanelParticipants} (666)">
+                <content>
+
+
+                    <Table
+                            items="{path: '/Participants/Organizer'}">
+                        <columns>
+                            <Column width="18rem">
+                                <Label text="{i18n>HomeTableOrganizer}"/>
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column hAlign="Center">
+                                <Link text="{i18n>HomeTableAdd}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <HBox alignItems="Center">
+                                        <Image src="{img}" class="imgCircle" width="3rem"/>
+                                        <VBox>
+                                        <Label text="{lastname} {firstname} {middlename}"/>
+                                        <Text text="{PERSG}" />
+                                        </VBox>
+                                    </HBox>
+                                    <Text text="{PLANS_TXT}" />
+                                    <Text text="{STEXT}" />
+                                    <Button icon="sap-icon://menu" />
+                                </cells>
+
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Table
+                            items="{path: '/Participants/Chairman'}">
+                        <columns>
+                            <Column width="18rem">
+                                <Label text="{i18n>HomeTableOrganizer}"/>
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column hAlign="Center">
+                                <Link text="{i18n>HomeTableAdd}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <HBox alignItems="Center">
+                                        <Image src="{img}" class="imgCircle" width="3rem"/>
+                                        <VBox>
+                                            <Label text="{lastname} {firstname} {middlename}"/>
+                                            <Text text="{PERSG}" />
+                                        </VBox>
+                                    </HBox>
+                                    <Text text="{PLANS_TXT}" />
+                                    <Text text="{STEXT}" />
+                                    <Button icon="sap-icon://menu" />
+                                </cells>
+
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <Table
+                            items="{
+                                path: '/Participants/Leaders',
+                                sorter: {
+                                    path: 'group',
+                                    descending: false,
+                                    group: true
+			                	},
+			                	groupHeaderFactory: '.formatter.successionHeaderFactory'
+                            }">
+                        <columns>
+                            <Column width="18rem">
+                                <Label text="{i18n>HomeTableOrganizer}"/>
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column width="14rem">
+                            </Column>
+                            <Column hAlign="Center">
+                                <Link text="{i18n>HomeTableAdd}" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <HBox alignItems="Center">
+                                        <Image src="{img}" class="imgCircle" width="3rem"/>
+                                        <VBox>
+                                            <Label text="{lastname} {firstname} {middlename}"/>
+                                            <Text text="{PERSG}" />
+                                        </VBox>
+                                    </HBox>
+                                    <Text text="{PLANS_TXT}" />
+                                    <Text text="{STEXT}" />
+                                    <Button icon="sap-icon://menu" />
+                                </cells>
+
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                </content>
+            </Panel>
+        </content>
+
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button id = "HomeFooterButton"
+                        class = "Btn"
+                        icon="sap-icon://save"
+                        text="{i18n>HomePanelSave}"
+                        tooltip="{i18n>HomePanelSave}"
+                        press="" />
+            </Toolbar>
+        </footer>
+
+    </Page>
+
+
+</mvc:View>
+
