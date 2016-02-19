@@ -2,6 +2,7 @@
         controllerName="sap.ui.app.controller.Home"
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
+        xmlns:core="sap.ui.core"
         xmlns:l="sap.ui.layout"
         xmlns:f="sap.ui.layout.form"
         >
@@ -38,13 +39,12 @@
                                             </layoutData>
                                     </Input>
                                     <Label text="{i18n>HomePanelCategory}"/>
-
-                                    <Input  id = "HomeInput2"
-                                            value="">
-                                            <layoutData>
-                                                <l:GridData span="L6 M6 S6" />
-                                            </layoutData>
-                                    </Input>
+                                    <Select id = "HomeInput2" items="{/HomeSelect1}">
+                                        <core:Item text="{}" />
+                                        <layoutData>
+                                            <l:GridData span="L6 M6 S6" />
+                                        </layoutData>
+                                    </Select>
                                  </f:content>
                             </f:SimpleForm>
                             <f:SimpleForm
@@ -55,9 +55,9 @@
                                     labelSpanS="6">
                                 <f:content>
                                     <Label text="{i18n>HomePanelPlanningDeadlines}"/>
-                                    <Input  id = "HomeInput3"
-                                            value="">
-                                    </Input>
+                                    <Select id = "HomeInput3" items="{/HomeSelect2}">
+                                        <core:Item text="{}" />
+                                    </Select>
                                     <Label text="{i18n>HomePanelDate}"/>
                                     <DatePicker  id = "HomeInput4"
                                             value="">
@@ -164,7 +164,7 @@
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu" />
+                                    <Button icon="sap-icon://menu" type="Transparent"/>
                                 </cells>
 
                             </ColumnListItem>
@@ -175,14 +175,14 @@
                             items="{path: '/Participants/Chairman'}">
                         <columns>
                             <Column width="18rem">
-                                <Label text="{i18n>HomeTableOrganizer}"/>
+                                <Label text="{i18n>HomeTableChairman}"/>
                             </Column>
                             <Column width="14rem">
                             </Column>
                             <Column width="14rem">
                             </Column>
                             <Column hAlign="Center">
-                                <Link text="{i18n>HomeTableAdd}" />
+                                <Button text="{i18n>HomeTableAdd}"  type="Transparent"/>
                             </Column>
                         </columns>
                         <items>
@@ -197,7 +197,7 @@
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu" />
+                                    <Button icon="sap-icon://menu"  type="Transparent"/>
                                 </cells>
 
                             </ColumnListItem>
@@ -216,14 +216,14 @@
                             }">
                         <columns>
                             <Column width="18rem">
-                                <Label text="{i18n>HomeTableOrganizer}"/>
+                                <Label text="{i18n>HomeTableLeaders}"/>
                             </Column>
                             <Column width="14rem">
                             </Column>
                             <Column width="14rem">
                             </Column>
                             <Column hAlign="Center">
-                                <Link text="{i18n>HomeTableAdd}" />
+                                <Button text="{i18n>HomeTableAdd}"  type="Transparent"/>
                             </Column>
                         </columns>
                         <items>
@@ -238,7 +238,7 @@
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu" />
+                                    <Button icon="sap-icon://menu"  type="Transparent"/>
                                 </cells>
 
                             </ColumnListItem>
@@ -253,7 +253,7 @@
             <Toolbar>
                 <ToolbarSpacer/>
                 <Button id = "HomeFooterButton"
-                        class = "Btn"
+                        type="Emphasized"
                         icon="sap-icon://save"
                         text="{i18n>HomePanelSave}"
                         tooltip="{i18n>HomePanelSave}"

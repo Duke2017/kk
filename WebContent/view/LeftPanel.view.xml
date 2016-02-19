@@ -35,7 +35,7 @@
             <Toolbar>
                 <ToolbarSpacer/>
                 <Button id = "LeftPanelFooterButton"
-                        class = "Btn"
+                        type="Emphasized"
                         icon="sap-icon://menu2"
                         text="{i18n>LeftPanelActions}"
                         tooltip="{i18n>LeftPanelActions}"
