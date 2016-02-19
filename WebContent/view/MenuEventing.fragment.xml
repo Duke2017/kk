@@ -1,0 +1,23 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:u="sap.ui.unified">
+    <u:Menu
+            itemSelect="handleMenuItemPress">
+        <u:MenuItem
+                text="{i18n>Move}">
+            <u:Menu>
+                <u:MenuItem
+                        text="{i18n>InBegin}" />
+                <u:MenuItem
+                        text="{i18n>Up}" />
+                <u:MenuItem
+                        text="{i18n>Down}" />
+                <u:MenuItem
+                        text="{i18n>InEnd}" />
+            </u:Menu>
+        </u:MenuItem>
+        <u:MenuItem
+                text="{i18n>Delete}"/>
+    </u:Menu>
+</core:FragmentDefinition>

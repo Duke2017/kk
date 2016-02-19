@@ -7,10 +7,10 @@
     <Page
             title = "{i18n>LeftPanelTitle}">
         <content>
-            <SegmentedButton selectedButton="ProfExpButton" width="100%">
+            <SegmentedButton selectedButton="LeftPanelSegmented1" width="100%">
             <!--    <Button text="{i18n>LeftPanelInPlan}" press="LeftPanelInPlanBtn"/>  -->
-                <Button text="{i18n>LeftPanelActive}" press="LeftPanelActiveBtn"/>
-                <Button text="{i18n>LeftPanelComplete}" press="LeftPanelActiveBtn"/>
+                <Button id="LeftPanelSegmented1" text="{i18n>LeftPanelActive}" press="LeftPanelActiveBtn"/>
+                <Button text="{i18n>LeftPanelComplete}" press="LeftPanelCompleteBtn"/>
             </SegmentedButton>
             <SearchField
                     liveChange="LeftPanelSearch"
@@ -23,7 +23,7 @@
                         press="LeftPanelListPress">
                         <VBox  class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
                             <Text text="{Status}"/>
-                            <Title text="{Name}"/>
+                            <Title text="{Name}" titleStyle="H4"/>
                             <Text text="{Category}"/>
                             <Text text="{Data}"/>
                         </VBox>

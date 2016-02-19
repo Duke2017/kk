@@ -1,13 +1,60 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], function (Controller) {
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+], function (Controller, Filter, FilterOperator) {
     "use strict";
     return Controller.extend("sap.ui.app.controller.LeftPanel", {
 
 
-        //1----ActionSheet buttons-------------
+        //1----Segmented buttons-------------
+        LeftPanelActiveBtn: function (oE) {
+            var oFilter1 = new Filter("STATUS", FilterOperator.Contains, "01");
+            var oFilter2 = new Filter("STATUS", FilterOperator.Contains, "02");
+            var comFilter = new Filter([oFilter1,oFilter2]);
+            // update list binding
+            var oList = this.getView().byId("LeftPanelList");
+            var binding = oList.getBinding("items");
+            binding.filter(comFilter, "Application");
+        },
+        LeftPanelCompleteBtn: function (oE) {
+            var oFilter = new Filter("STATUS", FilterOperator.Contains, "03");
+            // update list binding
+            var oList = this.getView().byId("LeftPanelList");
+            var binding = oList.getBinding("items");
+            binding.filter(oFilter, "Application");
+        },
+        //1------------------------------------
+        //2----ActionSheet buttons-------------
         ActionSheetDeletePress: function (oE) {
+            var dialog = new sap.m.Dialog({
+                title: "{i18n>InformationDialogTitle}",
+                type: 'Message',
+                content: new sap.m.Text({
+                    text:  '{i18n>InformationDialogText}'
+                }),
+                beginButton: new sap.m.Button({
+                    text: '{i18n>InformationDialogYes}',
+                    press: function () {
+                        dialog.close();
+                    }
+                }),
+                endButton: new sap.m.Button({
+                    text: '{i18n>InformationDialogNo}',
+                    press: function () {
+                        dialog.close();
+                    }
+                }),
+                afterClose: function() {
+                    dialog.destroy();
+                }
+            });
+            var i18nModel = new sap.ui.model.resource.ResourceModel({
+                bundleUrl : "i18n/i18n.properties"
+            });
+            dialog.setModel(i18nModel, "i18n");
 
+            dialog.open();
         },
         ActionSheetCancelPress: function (oE) {
 
@@ -21,7 +68,7 @@ sap.ui.define([
         ActionSheetChangePress: function (oE) {
 
         },
-        //1------------------------------------
+        //2------------------------------------
 
         LeftPanelListPress: function (oE) {
             alert();
@@ -43,17 +90,20 @@ sap.ui.define([
             // add filter for search
             var sQuery = oE.getSource().getValue();
             if (sQuery && sQuery.length > 0) {
-                var oFilter1 = new sap.ui.model.Filter("Status", sap.ui.model.FilterOperator.Contains, sQuery);
-                var oFilter2 = new sap.ui.model.Filter("Name",sap.ui.model.FilterOperator.Contains,sQuery);
-                var oFilter3 = new sap.ui.model.Filter("Category",sap.ui.model.FilterOperator.Contains,sQuery);
-                var oFilter4 = new sap.ui.model.Filter("Data",sap.ui.model.FilterOperator.Contains,sQuery);
-                var comFilter = new sap.ui.model.Filter([oFilter1,oFilter2,oFilter3,oFilter4]);
+                var oFilter1 = new Filter("Status", FilterOperator.Contains, sQuery);
+                var oFilter2 = new Filter("Name",FilterOperator.Contains,sQuery);
+                var oFilter3 = new Filter("Category",FilterOperator.Contains,sQuery);
+                var oFilter4 = new Filter("Data",FilterOperator.Contains,sQuery);
+                var comFilter = new Filter([oFilter1,oFilter2,oFilter3,oFilter4]);
             }
             // update list binding
             var oList = this.getView().byId("LeftPanelList");
             var binding = oList.getBinding("items");
             binding.filter(comFilter, "Application");
-          }
+          },
+        onBeforeRendering: function () {
+            this.LeftPanelActiveBtn();
+        }
     });
 });
 

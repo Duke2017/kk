@@ -158,13 +158,13 @@
                                     <HBox alignItems="Center">
                                         <Image src="{img}" class="imgCircle" width="3rem"/>
                                         <VBox>
-                                        <Label text="{lastname} {firstname} {middlename}"/>
-                                        <Text text="{PERSG}" />
+                                        <Label text="{lastname} {firstname} {middlename}" class="sapUiSmallMarginBegin"/>
+                                        <Text text="{PERSG}" class="sapUiSmallMarginBegin"/>
                                         </VBox>
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu" type="Transparent"/>
+                                    <Button icon="sap-icon://menu" type="Transparent"  press="HomeTableBtnOpenMenu" />
                                 </cells>
 
                             </ColumnListItem>
@@ -182,7 +182,7 @@
                             <Column width="14rem">
                             </Column>
                             <Column hAlign="Center">
-                                <Button text="{i18n>HomeTableAdd}"  type="Transparent"/>
+                                <Button text="{i18n>HomeTableAdd}"  type="Transparent" />
                             </Column>
                         </columns>
                         <items>
@@ -191,13 +191,13 @@
                                     <HBox alignItems="Center">
                                         <Image src="{img}" class="imgCircle" width="3rem"/>
                                         <VBox>
-                                            <Label text="{lastname} {firstname} {middlename}"/>
-                                            <Text text="{PERSG}" />
+                                            <Label text="{lastname} {firstname} {middlename}" class="sapUiSmallMarginBegin"/>
+                                            <Text text="{PERSG}" class="sapUiSmallMarginBegin"/>
                                         </VBox>
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu"  type="Transparent"/>
+                                    <Button icon="sap-icon://menu"  type="Transparent"  press="HomeTableBtnOpenMenu" />
                                 </cells>
 
                             </ColumnListItem>
@@ -223,7 +223,7 @@
                             <Column width="14rem">
                             </Column>
                             <Column hAlign="Center">
-                                <Button text="{i18n>HomeTableAdd}"  type="Transparent"/>
+                                <Button text="{i18n>HomeTableAdd}"  type="Transparent" />
                             </Column>
                         </columns>
                         <items>
@@ -232,13 +232,13 @@
                                     <HBox alignItems="Center">
                                         <Image src="{img}" class="imgCircle" width="3rem"/>
                                         <VBox>
-                                            <Label text="{lastname} {firstname} {middlename}"/>
-                                            <Text text="{PERSG}" />
+                                            <Label text="{lastname} {firstname} {middlename}" class="sapUiSmallMarginBegin"/>
+                                            <Text text="{PERSG}" class="sapUiSmallMarginBegin"/>
                                         </VBox>
                                     </HBox>
                                     <Text text="{PLANS_TXT}" />
                                     <Text text="{STEXT}" />
-                                    <Button icon="sap-icon://menu"  type="Transparent"/>
+                                    <Button icon="sap-icon://menu"  type="Transparent"  press="HomeTableBtnOpenMenu" />
                                 </cells>
 
                             </ColumnListItem>
