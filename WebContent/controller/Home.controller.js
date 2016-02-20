@@ -7,6 +7,11 @@ sap.ui.define([
         formatter: formatter,
 
         HomeTableBtnOpenMenu: function (oE) {
+            var oModel = sap.ui.getCore().getModel("Model");
+            var oData = oModel.getData();
+            console.log('oModel=', oModel);
+            console.log('oData', oData);
+
             var oButton = oE.getSource();
 
             // create menu only once

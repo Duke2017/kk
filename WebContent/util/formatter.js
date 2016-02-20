@@ -18,14 +18,13 @@ sap.ui.define([],
 					upperCase: false
 				} )
 			},
-			PanelText: function (sText){
-				var oModel = sap.ui.getCore().getModel("Model");
-				var oData = oModel.getData();
-				console.log('oModel=', oModel);
-				console.log('oData', oData);
-				console.log('prop=', oModel.getProperty("/RM_ROLE"));
-
-				return sText+" (666)"
+			PanelText: function (sText1, sObj1){
+//var sText2 = "" + sObj1.length + sObj2.length + sObj3.length;
+				var sText2 = 0;
+				if (sObj1) {
+					sText2 = sObj1.Organizer.length + sObj1.Chairman.length + sObj1.Leaders.length;
+				}
+				return sText1 +" (" + sText2 +  ")"
 			}
 		};
 

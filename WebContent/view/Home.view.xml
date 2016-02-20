@@ -144,11 +144,10 @@
             </Panel>
 
    <!--         <Panel expandable="true" expanded="true" headerText="{i18n>HomePanelParticipants} (666)">   -->
-            <Panel expandable="true" expanded="true" headerText="{path: 'i18n>HomePanelParticipants', formatter: '.formatter.PanelText'}">
-
+            <Panel expandable="true" expanded="true"
+                   headerText="{parts: [{path: 'i18n>HomePanelParticipants'},{path:'/Participants'}], formatter: '.formatter.PanelText'}">
 
                 <content>
-
 
                     <Table
                             items="{path: '/Participants/Organizer'}">
