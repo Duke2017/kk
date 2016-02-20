@@ -6,8 +6,17 @@
         xmlns:l="sap.ui.layout"
         xmlns:f="sap.ui.layout.form"
         >
-    <Page   enableScrolling="true"
-            title = "{i18n>HomeTitle}">
+    <Page   enableScrolling="true">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Title level="H2" text="{i18n>HomeTitle}"/>
+                </contentMiddle>
+                <contentRight>
+                    <Button icon="sap-icon://message-information" press="onPress"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
         <content>
 
             <OverflowToolbar class="sapUiTinyMarginTop">
@@ -134,7 +143,10 @@
 
             </Panel>
 
-            <Panel expandable="true" expanded="true" headerText="{i18n>HomePanelParticipants} (666)">
+   <!--         <Panel expandable="true" expanded="true" headerText="{i18n>HomePanelParticipants} (666)">   -->
+            <Panel expandable="true" expanded="true" headerText="{path: 'i18n>HomePanelParticipants', formatter: '.formatter.PanelText'}">
+
+
                 <content>
 
 

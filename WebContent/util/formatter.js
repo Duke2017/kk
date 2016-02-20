@@ -17,6 +17,15 @@ sap.ui.define([],
 					title: oTitle,
 					upperCase: false
 				} )
+			},
+			PanelText: function (sText){
+				var oModel = sap.ui.getCore().getModel("Model");
+				var oData = oModel.getData();
+				console.log('oModel=', oModel);
+				console.log('oData', oData);
+				console.log('prop=', oModel.getProperty("/RM_ROLE"));
+
+				return sText+" (666)"
 			}
 		};
 

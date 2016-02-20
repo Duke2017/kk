@@ -31,7 +31,7 @@ sap.ui.define([
                 title: "{i18n>InformationDialogTitle}",
                 type: 'Message',
                 content: new sap.m.Text({
-                    text:  '{i18n>InformationDialogText}'
+                    text:  '{i18n>InformationDialogTextDelete}'
                 }),
                 beginButton: new sap.m.Button({
                     text: '{i18n>InformationDialogYes}',
@@ -57,7 +57,34 @@ sap.ui.define([
             dialog.open();
         },
         ActionSheetCancelPress: function (oE) {
+            var dialog = new sap.m.Dialog({
+                title: "{i18n>InformationDialogTitle}",
+                type: 'Message',
+                content: new sap.m.Text({
+                    text:  '{i18n>InformationDialogTextCancel}'
+                }),
+                beginButton: new sap.m.Button({
+                    text: '{i18n>InformationDialogYes}',
+                    press: function () {
+                        dialog.close();
+                    }
+                }),
+                endButton: new sap.m.Button({
+                    text: '{i18n>InformationDialogNo}',
+                    press: function () {
+                        dialog.close();
+                    }
+                }),
+                afterClose: function() {
+                    dialog.destroy();
+                }
+            });
+            var i18nModel = new sap.ui.model.resource.ResourceModel({
+                bundleUrl : "i18n/i18n.properties"
+            });
+            dialog.setModel(i18nModel, "i18n");
 
+            dialog.open();
         },
         ActionSheetCopyPress: function (oE) {
 
