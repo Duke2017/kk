@@ -1,16 +1,18 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (Controller, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/app/util/formatter"
+], function (Controller, Filter, FilterOperator, formatter) {
     "use strict";
     return Controller.extend("sap.ui.app.controller.LeftPanel", {
-
+        formatter: formatter,
 
         //1----Segmented buttons-------------
         LeftPanelActiveBtn: function (oE) {
-            var oFilter1 = new Filter("STATUS", FilterOperator.Contains, "01");
-            var oFilter2 = new Filter("STATUS", FilterOperator.Contains, "02");
+            sap.FilterActive = true;
+            var oFilter1 = new Filter("STATUS", FilterOperator.EQ, "01");
+            var oFilter2 = new Filter("STATUS", FilterOperator.EQ, "02");
             var comFilter = new Filter([oFilter1,oFilter2]);
             // update list binding
             var oList = this.getView().byId("LeftPanelList");
@@ -18,7 +20,8 @@ sap.ui.define([
             binding.filter(comFilter, "Application");
         },
         LeftPanelCompleteBtn: function (oE) {
-            var oFilter = new Filter("STATUS", FilterOperator.Contains, "03");
+            sap.FilterActive = false;
+            var oFilter = new Filter("STATUS", FilterOperator.EQ, "03");
             // update list binding
             var oList = this.getView().byId("LeftPanelList");
             var binding = oList.getBinding("items");
@@ -116,18 +119,31 @@ sap.ui.define([
         LeftPanelSearch: function (oE) {
             // add filter for search
             var sQuery = oE.getSource().getValue();
+            if (sap.FilterActive) {
+                this.LeftPanelActiveBtn();
+            } else {
+                this.LeftPanelCompleteBtn();
+            }
             if (sQuery && sQuery.length > 0) {
+
+                sap.FilterActive = true;
+                var oFilter1 = new Filter("STATUS", FilterOperator.EQ, "01");
+                var oFilter2 = new Filter("STATUS", FilterOperator.EQ, "02");
+                var comFilter1 = new Filter([oFilter1,oFilter2]);
+
+
                 var oFilter1 = new Filter("Status", FilterOperator.Contains, sQuery);
                 var oFilter2 = new Filter("Name",FilterOperator.Contains,sQuery);
                 var oFilter3 = new Filter("Category",FilterOperator.Contains,sQuery);
                 var oFilter4 = new Filter("Data",FilterOperator.Contains,sQuery);
                 var comFilter = new Filter([oFilter1,oFilter2,oFilter3,oFilter4]);
-            }
+
             // update list binding
             var oList = this.getView().byId("LeftPanelList");
             var binding = oList.getBinding("items");
-            binding.filter(comFilter, "Application");
-          },
+            binding.filter(comFilter);
+            }
+        },
         onBeforeRendering: function () {
             this.LeftPanelActiveBtn();
         }

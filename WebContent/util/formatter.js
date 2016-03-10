@@ -25,6 +25,10 @@ sap.ui.define([],
 					sText2 = sObj1.Organizer.length + sObj1.Chairman.length + sObj1.Leaders.length;
 				}
 				return sText1 +" (" + sText2 +  ")"
+			},
+			LeftPanelListData: function (sText){
+				var oDate = new Date(sText.slice(0,4)+"/"+sText.slice(4,6)+"/"+sText.slice(6,8));
+				return oDate.toLocaleDateString()
 			}
 		};
 

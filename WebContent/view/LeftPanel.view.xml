@@ -17,7 +17,13 @@
                     width="100%" />
             <List
                 id="LeftPanelList"
-                items="{/MeetingsList}">
+                items="{
+                                path: '/MeetingsList',
+                                sorter: {
+                                    path: 'Data',
+                                    descending: false
+			                	}
+                            }">
                 <CustomListItem
                         type="Active"
                         press="LeftPanelListPress">
@@ -25,7 +31,7 @@
                             <Text text="{Status}"/>
                             <Title text="{Name}" titleStyle="H4"/>
                             <Text text="{Category}"/>
-                            <Text text="{Data}"/>
+                            <Text text="{path: 'Data', formatter: '.formatter.LeftPanelListData'}"/>
                         </VBox>
                 </CustomListItem>
             </List>
